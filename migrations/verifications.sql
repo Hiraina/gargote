@@ -7,3 +7,10 @@ FROM platCat pc
 JOIN categorie cat
 ON pc.id_cat = cat.id
 GROUP BY cat.nom;
+
+-- Etape 03: montant total de chaque commande
+SELECT comPl.id_commande commande, SUM(pl.prix) prixTotal
+FROM commandePlat comPl
+JOIN plat pl
+ON comPl.id_plat = pl.id
+GROUP BY comPl.id_commande;
