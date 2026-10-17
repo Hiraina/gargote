@@ -46,3 +46,12 @@ table modifiée : commande(**id**, date, #id_table?, #id_serveur)
 Un table est différente d'une commande parce qu'une table sert pour situer les clients, tandis qu'une commande sert pour savoir ce que le client veut.
 
 Le nom `table` pose un problème parce que postgres le considère comme `TABLE` qui représente une entité.
+
+## Etape 06
+
+modePaiement (**id**, type)
+
+historiquePaiement (**id**, date, #id_commande, montant_paye, reference)
+
+Ajouter une colonne `montant_paye` à la table commande n'est pas suffisant parce qu'un client pourrait payer sa note partiellement.
+

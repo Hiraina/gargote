@@ -38,3 +38,14 @@ JOIN plat pl
 ON comPl.id_plat = pl.id
 GROUP BY ser.prenom, ser.nom;
 
+-- Etape 06 : liste des commandes non soldées avec le montant dû, le montant payé et le reste à payer
+SELECT com.id as commande, SUM(p.prix) as total, hist.montant_paye as paye, SUM(p.prix) - hist.montant_paye as reste
+FROM commande com
+LEFT JOIN commandePlat comPl
+ON com.id = comPl.id_commande
+JOIN plat p
+ON comPl.id_plat = p.id
+LEFT JOIN historiquePaiement hist
+ON com.id = hist.id_commande
+GROUP BY com.id, hist.montant_paye
+HAVING hist.montant_paye < SUM(p.prix);
