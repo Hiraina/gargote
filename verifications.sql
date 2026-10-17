@@ -26,3 +26,15 @@ LEFT JOIN clientCommande cliCom
 ON com.id = cliCom.id_commande
 LEFT JOIN clients cli
 ON cli.id = cliCom.id_client;
+
+-- Etape 05 : nombre de commandes et chiffre d'affaires par serveur
+SELECT ser.prenom, ser.nom, COUNT(com.id) nb_commandes, SUM(pl.prix) C_A
+FROM commande com
+JOIN serveur ser
+ON com.id_serveur = ser.id
+JOIN commandePlat comPl
+ON com.id = comPl.id_commande
+JOIN plat pl
+ON comPl.id_plat = pl.id
+GROUP BY ser.prenom, ser.nom;
+

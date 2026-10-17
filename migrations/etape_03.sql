@@ -58,3 +58,6 @@ INSERT INTO commandePlat (id_commande, id_plat) VALUES
 (10, 3),
 (10, 6);
 
+
+
+
