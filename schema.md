@@ -55,3 +55,10 @@ historiquePaiement (**id**, date, #id_commande, montant_paye, reference)
 
 Ajouter une colonne `montant_paye` à la table commande n'est pas suffisant parce qu'un client pourrait payer sa note partiellement.
 
+## Etape 07
+
+Le prix total de la commande 1 a augmenté de 500 ariary.
+
+table modifiée : commande(**id**, date, #id_table?, #id_serveur, montant_total)
+
+historiquePrix (**id**, date, #id_plat, prix)
